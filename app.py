@@ -12,7 +12,12 @@ Tabs:
 """
 
 import streamlit as st
-import cv2
+try:
+    import cv2
+except ImportError:
+    import subprocess
+    subprocess.run(["pip", "install", "opencv-python-headless==4.8.1.78"])
+    import cv2
 import numpy as np
 from PIL import Image
 import tempfile
